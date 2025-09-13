@@ -1,0 +1,23 @@
+# Etapa de construcción
+FROM node:18 AS build
+
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+RUN npx ng build --configuration production
+
+# Etapa 2: Servir con http-server
+FROM node:18
+
+WORKDIR /app
+
+# Instalamos el servidor http
+RUN npm install -g http-server
+
+# Copiamos los archivos de Angular compilados
+COPY --from=build /app/dist/front2/browser ./dist
+
+EXPOSE 8080
+
+CMD ["http-server", "dist", "-p", "8080"]

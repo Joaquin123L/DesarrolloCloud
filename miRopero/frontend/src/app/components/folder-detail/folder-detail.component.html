@@ -1,0 +1,25 @@
+<div *ngIf="loading">Cargando carpeta...</div>
+
+<div *ngIf="!loading">
+  <h2>{{ folder.name }}</h2>
+
+  <h3>Prendas</h3>
+  <div *ngIf="folder.garments.length === 0">No hay prendas.</div>
+  <div class="garment-grid">
+    <div class="garment-card" *ngFor="let g of folder.garments">
+      <img [src]="g.image" alt="Imagen" />
+      <h4>{{ g.name }}</h4>
+      <p>{{ g.category }} - {{ g.color }}</p>
+    </div>
+  </div>
+
+  <h3>Outfits</h3>
+  <div *ngIf="folder.outfits.length === 0">No hay outfits.</div>
+  <div class="outfit-grid">
+    <div class="outfit-card" *ngFor="let o of folder.outfits">
+      <img *ngIf="o.image" [src]="o.image" alt="Imagen outfit" />
+      <h4>{{ o.name }}</h4>
+      <p>{{ o.garments.length }} prendas</p>
+    </div>
+  </div>
+</div>
