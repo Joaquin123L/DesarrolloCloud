@@ -1,16 +1,28 @@
 <!-- app.component.html -->
 <nav class="navbar">
   <div class="navbar-left">
-  <a routerLink="/" class="logo-link">Mi Ropero</a>
-</div>
+    <a routerLink="/" class="logo-link">Mi Ropero</a>
+  </div>
 
   <div class="navbar-right">
-    <a routerLink="/prendas">Listado de Prendas</a>
-    <a routerLink="/crear-prenda">Crear Prenda</a>
-    <a routerLink="/outfits">Listado de Outfits</a>
-    <a routerLink="/crear-outfit">Crear Outfit</a>
-    <a routerLink="/carpetas">Listado de Carpetas</a>
-    <a routerLink="/crear-carpeta">Crear Carpeta</a>
+    <!-- Dropdown Prendas -->
+    <div class="dropdown">
+      <button class="dropbtn">Prendas</button>
+      <div class="dropdown-content">
+        <a routerLink="/prendas">Listado de Prendas</a>
+        <a routerLink="/crear-prenda">Crear Prenda</a>
+      </div>
+    </div>
+
+    <!-- Dropdown Outfits -->
+    <div class="dropdown">
+      <button class="dropbtn">Outfits</button>
+      <div class="dropdown-content">
+        <a routerLink="/outfits">Listado de Outfits</a>
+        <a routerLink="/crear-outfit">Crear Outfit</a>
+      </div>
+    </div>
+
   </div>
 </nav>
 
